@@ -17,8 +17,7 @@ RUN								\
 	docker-php-ext-enable opcache			&&	\
 	docker-php-ext-install -j$(nproc) mysqli	&&	\
 	pecl install memcached-3.1.3			&&	\
-	docker-php-ext-enable memcached			&&	\
-	docker-php-ext-enable memcache
+	docker-php-ext-enable memcached
 
 # COPY ./php.ini /usr/local/etc/php/
 
