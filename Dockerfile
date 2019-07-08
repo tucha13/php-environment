@@ -13,9 +13,12 @@ RUN								\
 		--with-freetype-dir=/usr/include/		\
 		--with-jpeg-dir=/usr/include/		&&	\
 	docker-php-ext-install -j$(nproc) gd		&&	\
+	docker-php-ext-install -j$(nproc) opcache	&&	\
+	docker-php-ext-enable opcache			&&	\
 	docker-php-ext-install -j$(nproc) mysqli	&&	\
 	pecl install memcached-3.1.3			&&	\
-	docker-php-ext-enable memcached
+	docker-php-ext-enable memcached			&&	\
+	docker-php-ext-enable memcache
 
 # COPY ./php.ini /usr/local/etc/php/
 
