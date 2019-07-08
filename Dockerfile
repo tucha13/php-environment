@@ -18,6 +18,8 @@ RUN								\
 	docker-php-ext-install -j$(nproc) mysqli	&&	\
 	pecl install memcached-3.1.3			&&	\
 	docker-php-ext-enable memcached
+RUN	no | pecl install apcu-5.1.17			&&	\
+	echo "/usr/local/lib/php/extensions/no-debug-non-zts-20170718/apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
 
 # COPY ./php.ini /usr/local/etc/php/
 
